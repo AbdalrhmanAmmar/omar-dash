@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 import Projects from './Projects';
 import Certificate from './Certificate';
+import VideoSection from './VideoSection';
 
 export default function HomePage() {
   const [isDark, setIsDark] = useState(false);
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Navbar isDark={isDark} setIsDark={setIsDark} isEnglish={isEnglish} setIsEnglish={setIsEnglish} />
       <Hero />
       <Projects />
+      <VideoSection />
       <Certificate/>
   
     </div>

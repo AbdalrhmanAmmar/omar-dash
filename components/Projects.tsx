@@ -27,65 +27,65 @@ const projects: Project[] = [
   {
     id: 2,
     image: "/Project/project2.jpg",
-    title: "فيلا الواحة",
-    description: "فيلا مستقلة فاخرة مع حديقة خاصة وحمام سباحة في مجمع مغلق",
-     beds:"Studio, 1-2-bedroom",
-    handover: "Q2 2026",
-    location: "Jumeirah Garden City - Dubai"
+    title: "LUM1NAR TOWER 2",
+    description: "A testament to modern sophistication and enchantment. ",
+     beds:"1- 2.5 bedroom",
+    handover: "Q3 2026",
+    location: "District 2, Jumeirah Village Triangle - Dubai"
   },
   {
     id: 3,
-    image: "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg",
-    title: "شقق داون تاون",
-    description: "شقق حديثة في قلب المدينة بالقرب من برج خليفة ودبي مول",
-    beds:"Studio, 1-2-bedroom",
-    handover: "Q2 2026",
-    location: "Jumeirah Garden City - Dubai"
+  image: "/Project/project3.jpg",
+    title: "LUM1NAR TOWER 1",
+    description: "A testament to modern sophistication and enchantment.",
+    beds:"1- 1.5 - bedroom",
+    handover: "Q3 2026",
+    location: "District 2, Jumeirah Village Triangle - Dubai"
   },
   {
     id: 4,
-    image: "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg",
-    title: "مجمع النخيل السكني",
-    description: "وحدات سكنية راقية مع مرافق متكاملة ومناظر طبيعية خلابة",
-    beds:"Studio, 1-2-bedroom",
+      image: "/Project/project4.png",
+    title: "W1NNER TOWER",
+    description: "Where aesthetics and design meet an active and healthy lifestyle! ",
+    beds:"1-2 Bedroom apartments",
     handover: "Q2 2026",
     location: "Jumeirah Garden City - Dubai"
   },
   {
     id: 5,
-    image: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg",
-    title: "برج السماء",
-    description: "شقق بنتهاوس فاخرة مع خدمات فندقية وإطلالات 360 درجة",
+    image: "/Project/project5.jpeg",
+    title: "1WOOD Residence",
+    description: "Natural Living in Fully-Furnished Apartments Is a New Luxury!",
     beds:"Studio, 1-2-bedroom",
     handover: "Q2 2026",
-    location: "Jumeirah Garden City - Dubai"
+    location: "Jumeirah Village Circle - Dubai - UAE"
   },
   {
     id: 6,
-    image: "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg",
-    title: "فلل الصفا",
-    description: "فلل مستقلة بتصميم عصري وموقع استراتيجي في قلب دبي",
-    beds:"Studio, 1-2-bedroom",
-    handover: "Q2 2026",
-    location: "Jumeirah Garden City - Dubai"
+     image: "/Project/project6.jpeg",
+    title: "OZONE 1 Residence",
+    description: "House of Self-Сare Feel the fresh air, and let oxygen into every cell of your body.",
+    beds:"Studio, 1 and 2 Bedroom Apartments",
+    handover: "Q3 2025",
+    location: "Jumeirah Village Circle"
   },
   {
     id: 7,
-    image: "https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg",
-    title: "شقق المرسى",
-    description: "شقق مطلة على المارينا مع تشطيبات راقية ومرافق حصرية",
+    image: "/Project/project7.jpg",
+    title: "V1TER",
+    description: "Work-Life Balance",
     beds:"Studio, 1-2-bedroom",
-    handover: "Q2 2026",
-    location: "Jumeirah Garden City - Dubai"
+    handover: "Q3 2025",
+    location: "Jumeirah Village Circle - Dubai - UAE",
   },
   {
     id: 8,
-    image: "https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg",
-    title: "برج الأفق",
-    description: "وحدات سكنية فاخرة في أحدث أبراج المنطقة مع مرافق استثنائية",
-    beds:"Studio, 1-2-bedroom",
-    handover: "Q2 2026",
-    location: "Jumeirah Garden City - Dubai"
+    image: "/Project/project8.jpg",
+    title: "V1TER",
+    description: "Work-Life Balance",
+    beds:"Studio, 1-3 Bedroom Apartments",
+    handover: "Q3 2025",
+     location: "Jumeirah Village Circle - Dubai - UAE",
   }
 ];
 

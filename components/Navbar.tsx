@@ -13,12 +13,9 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useContext } from 'react';
 import { LanguageContext } from '@/context/LanguageContext';
 
-interface NavbarProps {
-  isDark: boolean;
-  setIsDark: (value: boolean) => void;
-}
 
-const Navbar = ({}: NavbarProps) => {
+
+const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const { t } = useTranslation();
   const { language, setLanguage } = useContext(LanguageContext);

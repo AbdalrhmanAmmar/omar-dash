@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
               {/* الصورة */}
               <div className="relative">
                 <Image
-                  src="/Img/heroimg.jpg"
+                  src="/img/heroimg.jpg"
                   width={448}
                   height={448}
                   alt="عمر الداش - مستشار عقاري"

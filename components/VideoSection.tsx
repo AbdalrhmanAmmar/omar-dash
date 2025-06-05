@@ -71,16 +71,16 @@ const VideoSection: React.FC = () => {
           >
             <div className="aspect-video relative">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover z-10 relative"
                 controls
-                preload="metadata"
+                preload="auto"
                 poster="/portfolio/dubai-2.jpg"
               >
-                <source src="/videos/video1.mp4" type="video/mp4" />
+                <source src="/video/video1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" ></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <h3 className="text-xl font-bold mb-2">مشاريع دبي الفاخرة</h3>
               <p className="text-sm text-gray-200">استكشف أفخم المشاريع العقارية في دبي</p>
@@ -93,16 +93,16 @@ const VideoSection: React.FC = () => {
           >
             <div className="aspect-video relative">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover z-10 relative"
                 controls
                 preload="metadata"
                 poster="/portfolio/invest.jpg"
               >
-                <source src="/videos/video2.mp4" type="video/mp4" />
+                <source src="/video/vid2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <h3 className="text-xl font-bold mb-2">جولات عقارية حصرية</h3>
               <p className="text-sm text-gray-200">تعرف على أحدث المشاريع السكنية في دبي</p>

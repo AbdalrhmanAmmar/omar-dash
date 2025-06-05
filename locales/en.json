@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Omar Eldash",
+    "title": "Professional Real Estate Consultant in UAE",
+    "description": "Exceptional expertise in the UAE real estate market, providing comprehensive consulting services to ensure the best investment opportunities",
+    "features": {
+      "projects": "Experience in Premium Projects",
+      "consulting": "Professional Consulting",
+      "service": "24/7 Service"
+    },
+    "buttons": {
+      "contact": "Contact Us",
+      "projects": "Current Projects"
+    }
+  },
+  "projects": {
+    "title": "Our Featured Projects",
+    "location": "Location",
+    "handover": "Handover"
+  },
+  "videos": {
+    "title": "Featured Videos",
+    "luxury": {
+      "title": "Dubai Luxury Projects",
+      "description": "Explore the most luxurious real estate projects in Dubai"
+    },
+    "tours": {
+      "title": "Exclusive Property Tours",
+      "description": "Discover the latest residential projects in Dubai"
+    }
+  },
+  "certificates": {
+    "title": "Our Accredited Certificates"
+  },
+  "footer": {
+    "social": "Connect with us on social media",
+    "rights": "© {year} Omar Eldash. All rights reserved."
+  }
+}

@@ -2,12 +2,15 @@
 
 import React from 'react';
 import { FaTiktok, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { useTranslation } from '@/hooks/useTranslation';
+
 
 const Footer: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <footer className="bg-gray-900 text-white py-12 mt-20">
       <div className="container mx-auto px-6 text-center">
-        <h4 className="text-xl font-bold mb-4 text-white">تواصل معنا على مواقع التواصل</h4>
+        <h4 className="text-xl font-bold mb-4 text-white">{t('footer.social')}</h4>
         <div className="flex justify-center gap-6 mb-6 text-2xl">
           <a
             href="https://www.tiktok.com/@omar.eldash?_t=ZS-8wjUpx3X1lQ&_r=1"
@@ -43,7 +46,7 @@ const Footer: React.FC = () => {
           </a>
         </div>
         <p className="text-sm text-gray-400">
-          © {new Date().getFullYear()} عمر الداش. جميع الحقوق محفوظة.
+           {t('footer.rights')}
         </p>
       </div>
     </footer>

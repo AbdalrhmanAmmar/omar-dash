@@ -3,8 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const VideoSection: React.FC = () => {
+   const { t } = useTranslation();
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: false
@@ -57,7 +59,7 @@ const VideoSection: React.FC = () => {
           className="text-4xl font-bold text-white mb-16 text-center relative"
         >
           <span className="relative inline-block">
-            مقاطع فيديو مميزة
+            {t('videos.title')}
             <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full"></span>
           </span>
         </motion.h2>

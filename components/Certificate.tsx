@@ -3,16 +3,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslation } from '@/hooks/useTranslation';
+
 
 const certificateImages = ['cert01.jpg', 'cert02.jpg', 'cert03.jpg'];
 
 const Certificates: React.FC = () => {
+   const { t } = useTranslation();
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <h3 className="text-3xl font-bold text-center text-gray-800 mb-16 relative">
           <span className="relative inline-block px-4 text-white">
-            شهاداتنا المعتمدة
+            {t('certificates.title')}
             <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
           </span>
         </h3>

@@ -7,153 +7,124 @@ import {
   Award,
   MessageSquare,
   Languages,
-  Moon,
-  Sun
+  ChevronDown
 } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
+import { useContext } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
 
 interface NavbarProps {
   isDark: boolean;
   setIsDark: (value: boolean) => void;
-  isEnglish: boolean;
-  setIsEnglish: (value: boolean) => void;
 }
 
-const Navbar = ({ isDark, setIsDark, isEnglish, setIsEnglish }:NavbarProps) => {
+const Navbar = ({ isDark, setIsDark }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const { t } = useTranslation();
+  const { language, setLanguage } = useContext(LanguageContext);
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ar' : 'en');
+  };
+
+  // ألوان متدرجة متناسقة
+  const gradientColors = "bg-gradient-to-r from-indigo-800 via-blue-800 to-purple-800";
+  const hoverEffect = "hover:bg-white/10 hover:text-white hover:shadow-lg";
+  const transition = "transition-all duration-300 ease-out";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      {/* خلفية متدرجة جميلة مع تأثيرات */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900 via-blue-900 to-indigo-900 opacity-95"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-800/20 to-purple-800/30"></div>
-      
-      {/* تأثيرات ضوئية متحركة */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 sm:-top-40 -right-20 sm:-right-40 w-40 sm:w-80 h-40 sm:h-80 bg-blue-400/20 rounded-full blur-2xl sm:blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-20 sm:-bottom-40 -left-20 sm:-left-40 w-40 sm:w-80 h-40 sm:h-80 bg-purple-400/20 rounded-full blur-2xl sm:blur-3xl animate-pulse delay-1000"></div>
+    <nav className={`fixed top-0 left-0 right-0 z-50 ${gradientColors} shadow-xl`}>
+      {/* تأثيرات بصرية إضافية */}
+      <div className="absolute inset-0 overflow-hidden opacity-90">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative backdrop-blur-sm border-b border-white/10 shadow-lg">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-4 sm:py-6">
+      <div className="relative backdrop-blur-sm border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16"> {/* قلل الارتفاع هنا */}
             
-            {/* أزرار التبديل - الآن في اليمين */}
-            <div className="flex items-center gap-2 sm:gap-4">
+            {/* زر تغيير اللغة */}
+            <div className="flex items-center gap-2">
               <button
-                onClick={() => setIsEnglish(!isEnglish)}
-                className="p-2 sm:p-3 text-white/90 hover:text-white hover:bg-white/15 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/10"
-                title="تغيير اللغة"
+                onClick={toggleLanguage}
+                className={`p-2 text-white/90 ${hoverEffect} rounded-lg ${transition} flex items-center gap-1 border border-white/10`}
+                title={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
               >
-                <Languages size={18} className="sm:w-5 sm:h-5" />
-              </button>
-              <button
-                onClick={() => setIsDark(!isDark)}
-                className="p-2 sm:p-3 text-white/90 hover:text-white hover:bg-white/15 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/10"
-                title="تغيير المظهر"
-              >
-                {isDark ? <Sun size={18} className="sm:w-5 sm:h-5" /> : <Moon size={18} className="sm:w-5 sm:h-5" />}
+                <Languages size={18} />
+                <span className="text-xs font-medium hidden sm:inline">
+                  {language === 'en' ? 'العربية' : 'English'}
+                </span>
               </button>
             </div>
 
-            {/* القائمة الرئيسية - الآن في اليسار */}
-            <div className="hidden md:flex items-center gap-4 lg:gap-8 text-white/90" style={{ direction: 'rtl' }}>
-              <a 
-                href="#" 
-                className="flex items-center gap-2 lg:gap-3 hover:text-white hover:bg-white/10 px-3 lg:px-4 py-2 rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-transparent hover:border-white/20 group"
-              >
-                <Home size={18} className="lg:w-5 lg:h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm lg:text-base">الرئيسية</span>
-              </a>
-              
-              <a 
-                href="#projects" 
-                className="flex items-center gap-2 lg:gap-3 hover:text-white hover:bg-white/10 px-3 lg:px-4 py-2 rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-transparent hover:border-white/20 group"
-              >
-                <Building size={18} className="lg:w-5 lg:h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm lg:text-base">المشاريع</span>
-              </a>
-              
-              <a 
-                href="#certificates" 
-                className="flex items-center gap-2 lg:gap-3 hover:text-white hover:bg-white/10 px-3 lg:px-4 py-2 rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-transparent hover:border-white/20 group"
-              >
-                <Award size={18} className="lg:w-5 lg:h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm lg:text-base">الشهادات</span>
-              </a>
-              
-              <a 
-                href="#contact" 
-                className="flex items-center gap-2 lg:gap-3 hover:text-white hover:bg-white/10 px-3 lg:px-4 py-2 rounded-lg lg:rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-transparent hover:border-white/20 group"
-              >
-                <MessageSquare size={18} className="lg:w-5 lg:h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm lg:text-base">التواصل</span>
-              </a>
+            {/* روابط التنقل - نسخة سطح المكتب */}
+            <div className={`hidden md:flex items-center gap-1 text-white/90 ${language === 'ar' ? 'flex-row' : ''}`}>
+              {[
+                { href: "#", icon: Home, text: t('nav.home') },
+                { href: "#projects", icon: Building, text: t('nav.projects') },
+                { href: "#certificates", icon: Award, text: t('nav.certificates') },
+                { href: "#contact", icon: MessageSquare, text: t('nav.contact') }
+              ].map((item, index) => (
+                <a 
+                  key={index}
+                  href={item.href}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg ${transition} ${hoverEffect} group`}
+                >
+                  <item.icon size={16} className="group-hover:rotate-12 ${transition}" />
+                  <span className="font-medium text-sm">{item.text}</span>
+                  <ChevronDown size={14} className="opacity-0 group-hover:opacity-70 ${transition} transform group-hover:translate-y-0.5" />
+                </a>
+              ))}
             </div>
 
-            {/* قائمة المحمول */}
+            {/* زر القائمة المتنقلة */}
             <div className="md:hidden">
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-white/90 hover:text-white hover:bg-white/15 rounded-lg transition-all duration-300"
+                className={`p-2 text-white/90 ${hoverEffect} rounded-lg ${transition}`}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
+                <div className="flex flex-col gap-1 w-6">
+                  <span className={`h-0.5 bg-white rounded-full ${transition} ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                  <span className={`h-0.5 bg-white rounded-full ${transition} ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                  <span className={`h-0.5 bg-white rounded-full ${transition} ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+                </div>
               </button>
             </div>
           </div>
 
-          {/* قائمة المحمول المنسدلة */}
-          <div className={`md:hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+          {/* القائمة المتنقلة */}
+          <div className={`md:hidden ${transition} overflow-hidden ${
+            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
-            <div className="px-4 py-4 space-y-2 bg-black/20 backdrop-blur-md border-t border-white/10">
-              <a 
-                href="#" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-3 text-white/90 hover:text-white hover:bg-white/10 px-4 py-3 rounded-lg transition-all duration-300 group"
-              >
-                <Home size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium">الرئيسية</span>
-              </a>
-              
-              <a 
-                href="#projects" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-3 text-white/90 hover:text-white hover:bg-white/10 px-4 py-3 rounded-lg transition-all duration-300 group"
-              >
-                <Building size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium">المشاريع</span>
-              </a>
-              
-              <a 
-                href="#certificates" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-3 text-white/90 hover:text-white hover:bg-white/10 px-4 py-3 rounded-lg transition-all duration-300 group"
-              >
-                <Award size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium">الشهادات</span>
-              </a>
-              
-              <a 
-                href="#contact" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-3 text-white/90 hover:text-white hover:bg-white/10 px-4 py-3 rounded-lg transition-all duration-300 group"
-              >
-                <MessageSquare size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium">التواصل</span>
-              </a>
+            <div className={`px-2 py-2 space-y-1 bg-black/20 backdrop-blur-md ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+              {[
+                { href: "#", icon: Home, text: t('nav.home') },
+                { href: "#projects", icon: Building, text: t('nav.projects') },
+                { href: "#certificates", icon: Award, text: t('nav.certificates') },
+                { href: "#contact", icon: MessageSquare, text: t('nav.contact') }
+              ].map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg ${transition} ${hoverEffect} ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+                >
+                  <item.icon size={18} className="flex-shrink-0" />
+                  <span className="font-medium">{item.text}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* خط متوهج في الأسفل */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-60"></div>
+      {/* خط متحرك سفلي */}
+      <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${
+        language === 'ar' ? 
+        'from-transparent via-purple-400 to-transparent' : 
+        'from-transparent via-blue-400 to-transparent'
+      } opacity-70`}></div>
     </nav>
   );
 };

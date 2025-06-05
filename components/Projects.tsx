@@ -3,13 +3,16 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from '@/hooks/useTranslation';
+import { useContext } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
 
 interface Project {
   id: number;
   image: string;
   title: string;
   description: string;
-  beds?:string
+  beds?: string;
   handover?: string;
   location?: string;
 }
@@ -20,7 +23,7 @@ const projects: Project[] = [
     image: "/project/project1.jpg",
     title: "EVERGR1N HOUSE",
     description: "A Sancutary of modern Elegance",
-    beds:"Studio, 1-2-bedroom",
+    beds: "Studio, 1-2-bedroom",
     handover: "Q2 2026",
     location: "Jumeirah Garden City - Dubai"
   },
@@ -29,16 +32,16 @@ const projects: Project[] = [
     image: "/project/project2.jpg",
     title: "LUM1NAR TOWER 2",
     description: "A testament to modern sophistication and enchantment. ",
-     beds:"1- 2.5 bedroom",
+    beds: "1- 2.5 bedroom",
     handover: "Q3 2026",
     location: "District 2, Jumeirah Village Triangle - Dubai"
   },
   {
     id: 3,
-  image: "/project/project3.jpg",
+    image: "/project/project3.jpg",
     title: "LUM1NAR TOWER 1",
     description: "A testament to modern sophistication and enchantment.",
-    beds:"1- 1.5 - bedroom",
+    beds: "1- 1.5 - bedroom",
     handover: "Q3 2026",
     location: "District 2, Jumeirah Village Triangle - Dubai"
   },
@@ -47,7 +50,7 @@ const projects: Project[] = [
     image: "/project/project4.png",
     title: "W1NNER TOWER",
     description: "Where aesthetics and design meet an active and healthy lifestyle! ",
-    beds:"1-2 Bedroom apartments",
+    beds: "1-2 Bedroom apartments",
     handover: "Q2 2026",
     location: "Jumeirah Garden City - Dubai"
   },
@@ -56,16 +59,16 @@ const projects: Project[] = [
     image: "/project/project5.jpeg",
     title: "1WOOD Residence",
     description: "Natural Living in Fully-Furnished Apartments Is a New Luxury!",
-    beds:"Studio, 1-2-bedroom",
+    beds: "Studio, 1-2-bedroom",
     handover: "Q2 2026",
     location: "Jumeirah Village Circle - Dubai - UAE"
   },
   {
     id: 6,
-     image: "/project/project6.jpeg",
+    image: "/project/project6.jpeg",
     title: "OZONE 1 Residence",
     description: "House of Self-Сare Feel the fresh air, and let oxygen into every cell of your body.",
-    beds:"Studio, 1 and 2 Bedroom Apartments",
+    beds: "Studio, 1 and 2 Bedroom Apartments",
     handover: "Q3 2025",
     location: "Jumeirah Village Circle"
   },
@@ -74,7 +77,7 @@ const projects: Project[] = [
     image: "/project/project7.jpg",
     title: "V1TER",
     description: "Work-Life Balance",
-    beds:"Studio, 1-2-bedroom",
+    beds: "Studio, 1-2-bedroom",
     handover: "Q3 2025",
     location: "Jumeirah Village Circle - Dubai - UAE",
   },
@@ -83,9 +86,9 @@ const projects: Project[] = [
     image: "/project/project8.jpg",
     title: "V1TER",
     description: "Work-Life Balance",
-    beds:"Studio, 1-3 Bedroom Apartments",
+    beds: "Studio, 1-3 Bedroom Apartments",
     handover: "Q3 2025",
-     location: "Jumeirah Village Circle - Dubai - UAE",
+    location: "Jumeirah Village Circle - Dubai - UAE",
   }
 ];
 
@@ -95,6 +98,8 @@ const Projects: React.FC = () => {
     threshold: 0.1,
     triggerOnce: false
   });
+  const { t } = useTranslation();
+  const { language } = useContext(LanguageContext);
 
   useEffect(() => {
     if (inView) {
@@ -151,9 +156,10 @@ const Projects: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-4xl font-bold text-white mb-16 text-center relative"
+          style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
         >
           <span className="relative inline-block">
-            مشاريعنا المميزة
+            {t('projects.title')}
             <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full"></span>
           </span>
         </motion.h2>
@@ -199,7 +205,7 @@ const Projects: React.FC = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      <span>{project.location}</span>
+                      <span>{t('projects.location')}: {project.location}</span>
                     </div>
                     
                     <div className="flex items-center text-teal-300">
@@ -213,11 +219,9 @@ const Projects: React.FC = () => {
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span>Handover: {project.handover}</span>
+                      <span>{t('projects.handover')}: {project.handover}</span>
                     </div>
                   </div>
-                  
-
                 </div>
                 
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-2xl transition-all duration-500 pointer-events-none"></div>
@@ -231,4 +235,3 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
-

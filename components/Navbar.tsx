@@ -18,7 +18,7 @@ interface NavbarProps {
   setIsDark: (value: boolean) => void;
 }
 
-const Navbar = ({ isDark, setIsDark }: NavbarProps) => {
+const Navbar = ({}: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const { t } = useTranslation();
   const { language, setLanguage } = useContext(LanguageContext);

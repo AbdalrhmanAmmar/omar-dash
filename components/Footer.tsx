@@ -8,7 +8,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 const Footer: React.FC = () => {
     const { t } = useTranslation();
   return (
-    <footer className="bg-gray-900 text-white py-12 mt-20">
+    <footer id='contact' className="bg-gray-900 text-white py-12 mt-20">
       <div className="container mx-auto px-6 text-center">
         <h4 className="text-xl font-bold mb-4 text-white">{t('footer.social')}</h4>
         <div className="flex justify-center gap-6 mb-6 text-2xl">

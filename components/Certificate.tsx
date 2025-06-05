@@ -11,7 +11,7 @@ const certificateImages = ['cert01.jpg', 'cert02.jpg', 'cert03.jpg'];
 const Certificates: React.FC = () => {
    const { t } = useTranslation();
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section id='certificates' className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <h3 className="text-3xl font-bold text-center text-gray-800 mb-16 relative">
           <span className="relative inline-block px-4 text-white">

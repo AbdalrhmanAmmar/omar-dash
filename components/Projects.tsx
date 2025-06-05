@@ -17,7 +17,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    image: "/Project/project1.jpg",
+    image: "/project/project1.jpg",
     title: "EVERGR1N HOUSE",
     description: "A Sancutary of modern Elegance",
     beds:"Studio, 1-2-bedroom",
@@ -26,7 +26,7 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    image: "/Project/project2.jpg",
+    image: "/project/project2.jpg",
     title: "LUM1NAR TOWER 2",
     description: "A testament to modern sophistication and enchantment. ",
      beds:"1- 2.5 bedroom",
@@ -35,7 +35,7 @@ const projects: Project[] = [
   },
   {
     id: 3,
-  image: "/Project/project3.jpg",
+  image: "/project/project3.jpg",
     title: "LUM1NAR TOWER 1",
     description: "A testament to modern sophistication and enchantment.",
     beds:"1- 1.5 - bedroom",
@@ -44,7 +44,7 @@ const projects: Project[] = [
   },
   {
     id: 4,
-      image: "/Project/project4.png",
+    image: "/project/project4.png",
     title: "W1NNER TOWER",
     description: "Where aesthetics and design meet an active and healthy lifestyle! ",
     beds:"1-2 Bedroom apartments",
@@ -53,7 +53,7 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    image: "/Project/project5.jpeg",
+    image: "/project/project5.jpeg",
     title: "1WOOD Residence",
     description: "Natural Living in Fully-Furnished Apartments Is a New Luxury!",
     beds:"Studio, 1-2-bedroom",
@@ -62,7 +62,7 @@ const projects: Project[] = [
   },
   {
     id: 6,
-     image: "/Project/project6.jpeg",
+     image: "/project/project6.jpeg",
     title: "OZONE 1 Residence",
     description: "House of Self-Сare Feel the fresh air, and let oxygen into every cell of your body.",
     beds:"Studio, 1 and 2 Bedroom Apartments",
@@ -71,7 +71,7 @@ const projects: Project[] = [
   },
   {
     id: 7,
-    image: "/Project/project7.jpg",
+    image: "/project/project7.jpg",
     title: "V1TER",
     description: "Work-Life Balance",
     beds:"Studio, 1-2-bedroom",
@@ -80,7 +80,7 @@ const projects: Project[] = [
   },
   {
     id: 8,
-    image: "/Project/project8.jpg",
+    image: "/project/project8.jpg",
     title: "V1TER",
     description: "Work-Life Balance",
     beds:"Studio, 1-3 Bedroom Apartments",
